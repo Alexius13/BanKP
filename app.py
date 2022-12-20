@@ -59,7 +59,7 @@ def mapa():
             <h4><b class="card-title">{ubicacion.nombre}</b></h4>
             <p class="card-text"><h5><ul></li><li><b>Categoria:</b> {ubicacion.categoria}</li><li><b>
             Contacto: </b>{ubicacion.contacto}</li><li><b>Para crear una cuenta presione: </b></li></p></ul></h5></p>
-            <a href="{ubicacion.pagina}" class="btn btn-primary">ir a la pagina</a>
+            <a href="{ubicacion.pagina}" class="btn btn-primary" style="color: #fff; font-size: 18px; font-weigth: bolder;">Ir a la pagina</a>
             </div>
             </div>"""
 
@@ -71,7 +71,8 @@ def mapa():
         """ coor_marcador_1 = [-25.30228494972107, -57.58155946210697]
          tooltip = "Hola mundo"
          folium.Marker(coor_marcador_1, popup="<i>Mt. Hood Meadows</i>", tooltip=tooltip).add_to(mapa) """
-    return mapa._repr_html_()
+    mapa.save('templates/map.html')
+    return render_template('map.html')
 @app.route('/agregar-marcadores', methods=['GET', 'POST'])
 
 def agregar_marcadores ():
