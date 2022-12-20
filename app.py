@@ -63,14 +63,8 @@ def mapa():
             </div>
             </div>"""
 
-        """{ubicacion.nombre}</li>\n<li><b>Categoria:</b> {ubicacion.categoria}</li>\n<li><b>
-        Contacto: </b>{ubicacion.contacto}</li>\n<li><b>Pagina: </b>{ubicacion.pagina}</li></p></ul>
-        <img class="center-block">"""
         folium.Marker([ubicacion.lat, ubicacion.lon], popup=tarjeta, tooltip="Click para mas info",icon=folium.Icon(color='red',icon='credit-card')).add_to(mapa)
     
-        """ coor_marcador_1 = [-25.30228494972107, -57.58155946210697]
-         tooltip = "Hola mundo"
-         folium.Marker(coor_marcador_1, popup="<i>Mt. Hood Meadows</i>", tooltip=tooltip).add_to(mapa) """
     mapa.save('templates/map.html')
     return render_template('map.html')
 @app.route('/agregar-marcadores', methods=['GET', 'POST'])
