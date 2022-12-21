@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>BanKp-Crece</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
@@ -149,14 +149,11 @@
                   <fieldset>
                     <legend class="block text-sm font-medium text-gray-900">Categorías</legend>
                     <div class="space-y-3 pt-6">
-
                       {% for categoria in categorias %}
-  
                       <div class="flex items-center">
                         <input name="{{categoria}}" value="{{categoria}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="{{categoria}}" class="ml-3 text-sm text-gray-600">{{categoria}}</label>
                       </div>
-  
                       {% endfor %}
                   </fieldset>
                   <div class="flex flex-row justify-center align-middle">
