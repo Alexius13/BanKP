@@ -151,7 +151,7 @@
                     <div class="space-y-3 pt-6">
                       {% for categoria in categorias %}
                       <div class="flex items-center">
-                        <input name="{{categoria}}" value="{{categoria}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="{{categoria}}" name="categoria" value="{{categoria}}" type="radio" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="{{categoria}}" class="ml-3 text-sm text-gray-600">{{categoria}}</label>
                       </div>
                       {% endfor %}
@@ -163,12 +163,12 @@
               </div>
               <div class="basis-3/4">
                 <iframe class="bg-white drop-shadow-xl p-2 rounded-2xl"
-                src="{{url_for('mapa')}}"
+                src="{{url_for('mapa', filtro=filtro)}}"
                 scrolling="no"
                 class="justify-center"
                 frameborder="0"
                 width="1000px"
-                height="700px"
+                height="100%"
                 ></iframe>
               </div>
             </div>
@@ -176,5 +176,8 @@
             </div>
         </div>
 
+        <script>
+          console.log(filtro);
+        </script>
 </body>
 </html>

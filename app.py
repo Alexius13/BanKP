@@ -28,6 +28,7 @@ class EntidadFinanciera (db.Model):#herencia
         self.lat = lat
         self.lon = lon
 
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -36,10 +37,10 @@ def index():
 def aprende():
     return render_template('aprende.html')
 
-@app.route('/crece')
+@app.route('/crece', methods = ['GET','POST'])
 def crece():
     ubicaciones = EntidadFinanciera.query.all()
-
+    filtro_cat=''
     # limpiando categorias para pasar al front para una selección
     resultados = []
     for ubicacion in ubicaciones:
@@ -48,9 +49,13 @@ def crece():
     categorias = []
     for resultado in resultados:
         if resultado not in categorias:
-            categorias.append(resultado)  
+            categorias.append(resultado)
 
-    return render_template('crece.html', categorias=categorias)       
+    if request.method == 'POST':
+        
+        filtro_cat = request.form['categoria']
+        
+    return render_template('crece.html', categorias=categorias, filtro=filtro_cat)       
 
 @app.route('/informate')
 def informate():
@@ -60,28 +65,30 @@ def informate():
 def test():
     return render_template('test.html')      
 
-@app.route('/mapa')
-def mapa():
+@app.route('/mapa/<filtro>')
+def mapa(filtro):
+    #print(f'Mapa: {entidad_por_categoria[0].categoria}')
     coordenadas_inicio = [-25.30234132846098, -57.58115713076387] 
     mapa = folium.Map(location=coordenadas_inicio, zoom_start=20) # creamos el mapa pasandole las coordenadas y el nivel de zoom y guardamos en la variable mapa
-    ubicaciones = EntidadFinanciera.query.all() # obtenemos todas las ubicaciones de la base de datos
+    #ubicaciones = EntidadFinanciera.query.all() # obtenemos todas las ubicaciones de la base de datos
+    ubicaciones = EntidadFinanciera.query.filter(EntidadFinanciera.categoria == filtro).all()
+    if ubicaciones:
+        for ubicacion in ubicaciones:
+            print(ubicacion.categoria)
+            tarjeta = f"""
+                <div class="card" style="width: 350px;">
+                <img src="{ubicacion.imagen}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h4><b class="card-title">{ubicacion.nombre}</b></h4>
+                <p class="card-text"><h5><ul></li><li><b>Categoria:</b> {ubicacion.categoria}</li><li><b>
+                Contacto: </b>{ubicacion.contacto}</li><li><b>Para crear una cuenta presione: </b></li></p></ul></h5></p>
+                <a href="{ubicacion.pagina}" class="btn btn-primary" style="color: #fff; font-size: 18px; font-weigth: bolder;">Ir a la pagina</a>
+                </div>
+                </div>"""
 
-    for ubicacion in ubicaciones:
-        tarjeta = f"""
-            <div class="card" style="width: 350px;">
-            <img src="{ubicacion.imagen}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h4><b class="card-title">{ubicacion.nombre}</b></h4>
-            <p class="card-text"><h5><ul></li><li><b>Categoria:</b> {ubicacion.categoria}</li><li><b>
-            Contacto: </b>{ubicacion.contacto}</li><li><b>Para crear una cuenta presione: </b></li></p></ul></h5></p>
-            <a href="{ubicacion.pagina}" class="btn btn-primary" style="color: #fff; font-size: 18px; font-weigth: bolder;">Ir a la pagina</a>
-            </div>
-            </div>"""
-
-        folium.Marker([ubicacion.lat, ubicacion.lon], popup=tarjeta, tooltip="Click para mas info",icon=folium.Icon(color='red',icon='credit-card')).add_to(mapa)
+            folium.Marker([ubicacion.lat, ubicacion.lon], popup=tarjeta, tooltip="Click para mas info",icon=folium.Icon(color='red',icon='credit-card')).add_to(mapa)
     
-    mapa.save('templates/map.html')
-    return render_template('map.html')
+    return mapa._repr_html_()
 @app.route('/agregar-marcadores', methods=['GET', 'POST'])
 
 def agregar_marcadores ():
