@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_be897dd485ef65edef4e93f368a22e85 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_be897dd485ef65edef4e93f368a22e85" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_be897dd485ef65edef4e93f368a22e85 = L.map(
+                "map_be897dd485ef65edef4e93f368a22e85",
+                {
+                    center: [-25.30234132846098, -57.58115713076387],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 20,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c52efc463106883ad98f831614a06ad2 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_be897dd485ef65edef4e93f368a22e85);
+        
+    
+            var marker_758c5166bf097a9081e4909b0a7ca73e = L.marker(
+                [-25.30101137649403, -57.57678821060722],
+                {}
+            ).addTo(map_be897dd485ef65edef4e93f368a22e85);
+        
+    
+            var icon_6d061db09270c0dfdc9cd16f964dc752 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "credit-card", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_758c5166bf097a9081e4909b0a7ca73e.setIcon(icon_6d061db09270c0dfdc9cd16f964dc752);
+        
+    
+        var popup_d94855e429e2f2f48f12e75ea6c958c9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8064fc0b66a7423ad797d6c358e863e5 = $(`<div id="html_8064fc0b66a7423ad797d6c358e863e5" style="width: 100.0%; height: 100.0%;">             <div class="card" style="width: 350px;">             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEpS2aJwlDcjpE1IyzJkrEjOqRGPRA6EQi-QcnNgXjhA&s" class="card-img-top" alt="...">             <div class="card-body">             <h4><b class="card-title">Verduleria, La verdura anarquista</b></h4>             <p class="card-text"><h5><ul></li><li><b>Categoria:</b> Cooperativa</li><li><b>             Contacto: </b>0985345678</li><li><b>Para crear una cuenta presione: </b></li></p></ul></h5></p>             <a href="www.pancho.com" class="btn btn-primary" style="color: #fff; font-size: 18px; font-weigth: bolder;">Ir a la pagina</a>             </div>             </div></div>`)[0];
+                popup_d94855e429e2f2f48f12e75ea6c958c9.setContent(html_8064fc0b66a7423ad797d6c358e863e5);
+            
+        
+
+        marker_758c5166bf097a9081e4909b0a7ca73e.bindPopup(popup_d94855e429e2f2f48f12e75ea6c958c9)
+        ;
+
+        
+    
+    
+            marker_758c5166bf097a9081e4909b0a7ca73e.bindTooltip(
+                `<div>
+                     Click para mas info
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
