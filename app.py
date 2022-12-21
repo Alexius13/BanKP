@@ -42,7 +42,11 @@ def crece():
 
 @app.route('/informate')
 def informate():
-    return render_template('informate.html')       
+    return render_template('informate.html')
+
+@app.route('/test')
+def test():
+    return render_template('test.html')      
 
 @app.route('/mapa')
 def mapa():
