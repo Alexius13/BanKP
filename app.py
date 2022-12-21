@@ -38,7 +38,19 @@ def aprende():
 
 @app.route('/crece')
 def crece():
-    return render_template('crece.html')       
+    ubicaciones = EntidadFinanciera.query.all()
+
+    # limpiando categorias para pasar al front para una selección
+    resultados = []
+    for ubicacion in ubicaciones:
+        resultados.append(ubicacion.categoria)
+
+    categorias = []
+    for resultado in resultados:
+        if resultado not in categorias:
+            categorias.append(resultado)  
+
+    return render_template('crece.html', categorias=categorias)       
 
 @app.route('/informate')
 def informate():
@@ -53,7 +65,6 @@ def mapa():
     coordenadas_inicio = [-25.30234132846098, -57.58115713076387] 
     mapa = folium.Map(location=coordenadas_inicio, zoom_start=20) # creamos el mapa pasandole las coordenadas y el nivel de zoom y guardamos en la variable mapa
     ubicaciones = EntidadFinanciera.query.all() # obtenemos todas las ubicaciones de la base de datos
-    
 
     for ubicacion in ubicaciones:
         tarjeta = f"""
