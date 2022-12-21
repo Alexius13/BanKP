@@ -65,6 +65,7 @@ def informate():
 def test():
     return render_template('test.html')      
 
+@app.route('/mapa/',defaults={'filtro': 'Banco'})
 @app.route('/mapa/<filtro>')
 def mapa(filtro):
     #print(f'Mapa: {entidad_por_categoria[0].categoria}')
