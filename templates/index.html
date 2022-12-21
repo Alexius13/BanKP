@@ -27,6 +27,8 @@
     />
     <!--Tailwind Custom Forms - use to standardise form fields - https://github.com/tailwindcss/custom-forms-->
 
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
     <style>
       @import url("https://rsms.me/inter/inter.css");
       html {
@@ -144,28 +146,28 @@
             <li class="mr-3">
               <a
                 class="inline-block font-bold text-stone-800 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="aprende"
+                href="{{url_for('aprende')}}"
                 >Aprendamos con Kpcito</a
               >
             </li>
             <li class="mr-3">
               <a
                 class="inline-block text-stone-800 font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+                href="#consejos-kpcito"
                 >Consejos de Kpcito</a
               >
             </li>
             <li class="mr-3">
               <a
                 class="inline-block text-stone-800 no-underline font-bold hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
-                > ¿Qué es un Bankp?</a
+                href="#que-es-bankp"
+                > ¿Qué es Bankp?</a
               >
             </li>
             <li class="mr-3">
               <a
                 class="inline-block text-stone-800 no-underline font-bold hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+                href="#nuestro-team"
                 >Nuestro Team</a
               >
             </li>
@@ -230,23 +232,14 @@
           <ul
           class="list-reset flex justify-between flex-1 md:flex-none items-center padding-bottom-35"
         >
-        <button name="categoria" id="categoria" value="recreativo"
-        class="bg-transparent border border-gray-500 hover:border-green-500 text-xl text-gray-500 hover:text-green-500 font-bold py-2 px-8 rounded-full mx-2 h-20"
-      >
-      Informate kp 
-      </button>
+        
+      <a href="{{url_for('informate')}}" class="bton">Informate kp</a>
+      <a href="{{url_for('aprende')}}" class="bton">Aprendamos kp</a>
+      <a href="{{url_for('crece')}}" class="bton">Crezcamos juntos</a>
       
-          <button name="categoria" id="categoria" value="recreativo"
-            class="bg-transparent border border-gray-500 hover:border-green-500 text-xl text-gray-500 hover:text-green-500 font-bold py-2 px-8 rounded-full mx-2 h-20"
-          >
-            Aprendamos kp
-          </button>
+          
       
-          <button name="categoria" id="categoria" value="recreativo"
-          class="bg-transparent border border-gray-500 hover:border-green-500 text-xl text-gray-500 hover:text-green-500 font-bold py-2 px-8 rounded-full mx-2 h-20"
-        >
-          Crezcamos juntos
-        </button>
+          
         </ul>
       </div>
     </div>
@@ -267,7 +260,7 @@
 
     <section class="bg-white border-b py-5">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12 justify-center">
-        <h2
+        <h2 id="consejos-kpcito"
           class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800"
         >
           Consejos de Kpcito
@@ -366,7 +359,7 @@
     </section>
 
     <section class="bg-amber-500 w-full mx-auto text-center pt-6 pb-12">
-      <a class="text-sky-900  no-underline hover:no-underline font-bold text-2xl lg:text-5xl text-start" href="#">
+      <a id='que-es-bankp' class="text-sky-900  no-underline hover:no-underline font-bold text-2xl lg:text-5xl text-start" href="#">
 
         ¿Qué es Bankp?
       
@@ -411,19 +404,14 @@
       <div class="container mx-auto mt-8 px-8">
       
           <div class="flex-1 mb-6">
-            <div class="flex flex-row py-6">
-              <div class="basis-1/8">
-                <img src="https://raw.githubusercontent.com/Alexius13/BanKP/main/static/LOGObilletera2.png" width="100px" height="100px" alt="logo">
-            
-              </div>
-              <div class="basis-1/8">
-                <a class="text-sky-900 no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-start" href="#">
+            <div class="flex flex-row py-6 justify-center">
+              
+                <a id="nuestro-team" class="text-sky-900 no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-start" href="#">
 
                     Nuestro team
                   
                 </a>
-              </div>
-              <div class="basis-3/4">LOS MIEMBROS SON SSDSHF</div>
+              
             </div>
           
           </div>
@@ -434,7 +422,7 @@
               <div class="space-y-8 sm:space-y-12">
                 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
           
-                  <h2 id="ending" class="text-3xl text-[#074D44] font-bold tracking-tight sm:text-4xl sm:tracking-tight">Nuestro team</h2>
+                  
           
                 
                 </div>

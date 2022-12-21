@@ -1,41 +1,25 @@
-.pantalla {
-    box-shadow: 0px 0px 30px gray;
-    border-radius: 5px;
-    margin: 0;
-    margin-bottom: 20px;
-    height: 500px;
-    width: 100%;
-    background-color: white;
+.bton {
+    border: 2px solid #fb5;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #fb5;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.barra-tareas {
-    padding: 10px;
-    gap: 8px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background-color: gainsboro;
-    border-radius: 5px 5px 0 0;
-    height: 35px;
-}
-
-.circulo-1{
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-}
-
-.circulo-2{
-    width: 15px;
-    height: 15px;
-    background-color: greenyellow;
-    border-radius: 50%;
-}
-
-.circulo-3{
-    width: 15px;
-    height: 15px;
-    background-color: orange;
-    border-radius: 50%;
+a.bton:hover {
+    border: 2px solid gray;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 22px;
+    color: gray;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: Arial, Helvetica, sans-serif;
 }
